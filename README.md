@@ -1,1 +1,1 @@
-# CardGameBlackJack
+BlackJack Card Game
