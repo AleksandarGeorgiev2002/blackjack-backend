@@ -15,7 +15,6 @@ import java.util.Optional;
 @Service
 //@RequiredArgsConstructor
 public class UserService {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -26,7 +25,6 @@ public class UserService {
         }
         user.setUsername(userRequest.getUsername());
         user.setEmail(userRequest.getEmail());
-
         user.setPassword(userRequest.getPassword());
         return userRepository.save(user);
     }
@@ -51,21 +49,24 @@ public class UserService {
         }
     }
 
-    public void deleteUsers() {
-        userRepository.deleteAll();
-    }
-
-    public User updateUser(UserUpdateRequest userToUpdate) {
-        return userRepository.findById(userToUpdate.getId())
+    public String updateUser(UserUpdateRequest userToUpdate) {
+         userRepository.findById(userToUpdate.getId())
                 .map(user -> {
                     user.setUsername(userToUpdate.getUsername());
                     user.setEmail(userToUpdate.getEmail());
                     user.setPassword(userToUpdate.getPassword());
                     return userRepository.save(user);
                 }).orElseThrow(() -> new UserNotFoundException(userToUpdate.getId()));
+
+         return "User with id " + userToUpdate.getId() + "updated successfully!";
     }
 
     public boolean checkIfUserExists(String username) {
-        return userRepository.existsByUsername(username);
+        return (userRepository.existsByUsername(username));
     }
+
+    public Optional<User> findUser(String username, String password){
+        return userRepository.findUserByUsernameAndPassword(username, password);
+    }
+
 }

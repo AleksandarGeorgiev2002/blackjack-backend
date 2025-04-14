@@ -1,7 +1,6 @@
 package com.CardGameBlackJack.model;
 
 import com.CardGameBlackJack.exception.EmailNotValidException;
-import com.CardGameBlackJack.exception.PasswordIsEmptyException;
 import com.CardGameBlackJack.exception.PasswordNotValidException;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,6 +19,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(unique = true, nullable = false)
     private String username;
 
@@ -30,12 +30,10 @@ public class User {
     private String password;
 
     public void setPassword(String password) {
-        if ("".equals(password) || password.isBlank()) {
-            throw new PasswordIsEmptyException();
-        } else if (isValidPassword(password)) {
+        if (isValidPassword(password)) {
             this.password = password;
         } else {
-            throw new PasswordNotValidException(password);
+            throw new PasswordNotValidException();
         }
     }
 
@@ -43,7 +41,7 @@ public class User {
         if (isValidEmail(email)) {
             this.email = email;
         } else {
-            throw new EmailNotValidException(email);
+            throw new EmailNotValidException();
         }
     }
 
@@ -58,7 +56,7 @@ public class User {
     }
 
     public static boolean isValidPassword(String password) {
-        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$";
+        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{6,20}$";
         Pattern p = Pattern.compile(regex);
         if (password == null) {
             return false;

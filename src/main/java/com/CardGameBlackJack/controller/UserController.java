@@ -6,22 +6,34 @@ import com.CardGameBlackJack.model.User;
 import com.CardGameBlackJack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/api/users")
 //@RequiredArgsConstructor
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping
+    @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public User registerUser(@RequestBody UserRequest newUser) {
         return userService.createUser(newUser);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody UserRequest userRequest) {
+        Optional<User> user = userService.findUser(userRequest.getUsername(), userRequest.getPassword());
+        if (user.isPresent()) {
+            return ResponseEntity.ok("User logged in successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid username or password");
+        }
     }
 
     @PutMapping
@@ -46,14 +58,5 @@ public class UserController {
     String deleteUser(@PathVariable Long id) {
         userService.deleteUserById(id);
         return "User has been deleted successfully!";
-    }
-
-    @DeleteMapping
-    public String deleteAllUsers() {
-        if (userService.getUsers().isEmpty()) {
-            return "No users to delete!";
-        }
-        userService.deleteUsers();
-        return "All users have been successfully deleted!";
     }
 }

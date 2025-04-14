@@ -12,26 +12,26 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(UserAlreadyExistsException.class)
-    @ResponseStatus(HttpStatus.CONFLICT) // 409 Conflict
+    @ResponseStatus(HttpStatus.CONFLICT)
     public Map<String, String> handleUserAlreadyExistsException(UserAlreadyExistsException ex) {
         Map<String, String> errorResponse = new HashMap<>();
-        errorResponse.put("Error: ", ex.getMessage());
+        errorResponse.put("user", ex.getMessage());
         return errorResponse;
     }
 
     @ExceptionHandler(EmailNotValidException.class)
-    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE) // 406 Not Acceptable
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
     public Map<String, String> EmailNotValidException(EmailNotValidException ex) {
         Map<String, String> errorResponse = new HashMap<>();
-        errorResponse.put("Error: ", ex.getMessage());
+        errorResponse.put("email", ex.getMessage());
         return errorResponse;
     }
 
     @ExceptionHandler(PasswordNotValidException.class)
-    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE) // 406 Not Acceptable
+    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
     public Map<String, String> passwordNotValidException(PasswordNotValidException ex) {
         Map<String, String> errorResponse = new HashMap<>();
-        errorResponse.put("Error:", ex.getMessage());
+        errorResponse.put("password", ex.getMessage());
         return errorResponse;
     }
 }

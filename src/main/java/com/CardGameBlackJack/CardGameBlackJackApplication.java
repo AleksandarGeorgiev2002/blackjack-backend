@@ -9,5 +9,4 @@ public class CardGameBlackJackApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CardGameBlackJackApplication.class, args);
 	}
-
 }
