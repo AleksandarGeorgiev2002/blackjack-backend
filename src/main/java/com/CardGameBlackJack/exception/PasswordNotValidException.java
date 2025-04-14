@@ -1,4 +1,4 @@
-package com.CardGameWar.exception;
+package com.CardGameBlackJack.exception;
 
 public class PasswordNotValidException extends RuntimeException{
     public PasswordNotValidException(String password) {

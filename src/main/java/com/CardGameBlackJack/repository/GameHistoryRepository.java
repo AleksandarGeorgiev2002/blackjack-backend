@@ -1,7 +1,7 @@
-package com.CardGameWar.repository;
+package com.CardGameBlackJack.repository;
 
-import com.CardGameWar.model.GameHistory;
-import com.CardGameWar.model.User;
+import com.CardGameBlackJack.model.GameHistory;
+import com.CardGameBlackJack.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

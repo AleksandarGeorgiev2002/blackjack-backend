@@ -1,4 +1,4 @@
-package com.CardGameWar.model;
+package com.CardGameBlackJack.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

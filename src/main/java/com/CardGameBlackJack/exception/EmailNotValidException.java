@@ -1,4 +1,4 @@
-package com.CardGameWar.exception;
+package com.CardGameBlackJack.exception;
 
 public class EmailNotValidException extends RuntimeException{
     public EmailNotValidException(String email) {

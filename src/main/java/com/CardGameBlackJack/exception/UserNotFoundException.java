@@ -1,4 +1,4 @@
-package com.CardGameWar.exception;
+package com.CardGameBlackJack.exception;
 
 public class UserNotFoundException extends RuntimeException{
     public UserNotFoundException(Long id) {

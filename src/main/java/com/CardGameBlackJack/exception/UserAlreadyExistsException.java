@@ -1,4 +1,4 @@
-package com.CardGameWar.exception;
+package com.CardGameBlackJack.exception;
 
 public class UserAlreadyExistsException extends RuntimeException {
     public UserAlreadyExistsException(String username) {

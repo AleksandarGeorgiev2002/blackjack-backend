@@ -1,6 +1,6 @@
-package com.CardGameWar.repository;
+package com.CardGameBlackJack.repository;
 
-import com.CardGameWar.model.User;
+import com.CardGameBlackJack.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

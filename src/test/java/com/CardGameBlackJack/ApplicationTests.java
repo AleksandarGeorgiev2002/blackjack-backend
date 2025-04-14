@@ -1,4 +1,4 @@
-package com.CardGameWar;
+package com.CardGameBlackJack;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

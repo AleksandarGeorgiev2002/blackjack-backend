@@ -1,12 +1,11 @@
-package com.CardGameWar.service;
+package com.CardGameBlackJack.service;
 
-import com.CardGameWar.dto.UserRequest;
-import com.CardGameWar.dto.UserUpdateRequest;
-import com.CardGameWar.exception.UserAlreadyExistsException;
-import com.CardGameWar.exception.UserNotFoundException;
-import com.CardGameWar.model.User;
-import com.CardGameWar.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import com.CardGameBlackJack.dto.UserRequest;
+import com.CardGameBlackJack.dto.UserUpdateRequest;
+import com.CardGameBlackJack.exception.UserAlreadyExistsException;
+import com.CardGameBlackJack.exception.UserNotFoundException;
+import com.CardGameBlackJack.model.User;
+import com.CardGameBlackJack.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

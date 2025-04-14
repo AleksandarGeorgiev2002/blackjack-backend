@@ -1,12 +1,12 @@
-package com.CardGameWar.model;
+package com.CardGameBlackJack.model;
 
-import com.CardGameWar.exception.EmailNotValidException;
-import com.CardGameWar.exception.PasswordNotValidException;
+import com.CardGameBlackJack.exception.EmailNotValidException;
+import com.CardGameBlackJack.exception.PasswordIsEmptyException;
+import com.CardGameBlackJack.exception.PasswordNotValidException;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,7 +30,9 @@ public class User {
     private String password;
 
     public void setPassword(String password) {
-        if (isValidPassword(password)) {
+        if ("".equals(password) || password.isBlank()) {
+            throw new PasswordIsEmptyException();
+        } else if (isValidPassword(password)) {
             this.password = password;
         } else {
             throw new PasswordNotValidException(password);
@@ -43,7 +45,6 @@ public class User {
         } else {
             throw new EmailNotValidException(email);
         }
-
     }
 
     private boolean isValidEmail(String email) {

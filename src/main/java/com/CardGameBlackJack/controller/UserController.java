@@ -1,15 +1,10 @@
-package com.CardGameWar.controller;
+package com.CardGameBlackJack.controller;
 
-import com.CardGameWar.dto.UserRequest;
-import com.CardGameWar.dto.UserUpdateRequest;
-import com.CardGameWar.exception.UserNotFoundException;
-import com.CardGameWar.model.User;
-import com.CardGameWar.repository.UserRepository;
-import com.CardGameWar.service.UserService;
-import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.message.StringFormattedMessage;
+import com.CardGameBlackJack.dto.UserRequest;
+import com.CardGameBlackJack.dto.UserUpdateRequest;
+import com.CardGameBlackJack.model.User;
+import com.CardGameBlackJack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

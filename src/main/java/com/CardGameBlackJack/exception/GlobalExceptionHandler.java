@@ -1,6 +1,5 @@
-package com.CardGameWar.exception;
+package com.CardGameBlackJack.exception;
 
-import com.CardGameWar.exception.UserAlreadyExistsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
