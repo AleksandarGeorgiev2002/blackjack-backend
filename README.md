@@ -1,2 +1,1 @@
-# CardGameBlackJack
-Hey puss in boots
+Back end logic for Blackjack Card Game
