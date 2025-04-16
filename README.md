@@ -15,9 +15,6 @@ This project provides the backend logic for a Blackjack card game built with **J
 - Supports player actions like "Hit", "Stand", and "Double Down".
 - Includes dealer logic (e.g., dealer must draw cards until reaching a score of 17 or higher).
 
-### Game History
-- Tracks details of each game, such as the game name, duration, end time, and the user who played.
-
 ### Persistence
 - Stores user data and game history in a relational database.
 - Uses **JPA** and **Hibernate** for database interactions.
